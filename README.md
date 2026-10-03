@@ -4,6 +4,10 @@ An e-commerce case study examining sales, profitability, purchasing activity, an
 
 ![Commercial Performance & Discount Risk Analysis](assets/cover.jpg)
 
+> 📗 [**View the Analysis Workbook →**](eda_sheets.pdf)
+> 
+> 📊 [**View the Dashboard →**](https://datastudio.google.com/reporting/9b0eee36-cb31-4a41-bf7c-8d2b9de1a000)
+
 ## Overview
 
 ### Business Context
@@ -20,9 +24,9 @@ The analysis further investigates how profitability varied across discount level
 
 The resulting insights can support:
 
-- Performance monitoring by tracking monthly and quarterly changes in sales, profitability, and purchasing activity.
-- Resource prioritization by identifying where strong performance can be reinforced and where weaker performance may warrant further investigation across products, customer segments, and regions.
-- Discount governance by pinpointing discount levels associated with weaker profitability and the areas where high-discount, loss-making activity is most concentrated.
+- **Performance monitoring** by tracking monthly and quarterly changes in sales, profitability, and purchasing activity.
+- **Resource prioritization** by identifying where strong performance can be reinforced and where weaker performance may warrant further investigation across products, customer segments, and regions.
+- **Discount governance** by pinpointing discount levels associated with weaker profitability and the areas where high-discount, loss-making activity is most concentrated.
 
 ## Dataset
 
@@ -75,7 +79,7 @@ The following transformations were applied before analysis:
 
 - **Cleaned fields:** Original fields were retained, while imputed or standardized values were stored in new fields using the `clean_` prefix.
 
-- **Duplicate removal:** The **417 exact full-row duplicates** were removed using Data Cleanup, leaving **10,076 line-item records**.
+- **Duplicate removal:** The 417 exact full-row duplicates were removed using Data Cleanup, leaving 10,076 line-item records.
 
 - **Data consistency:** Capitalization inconsistencies in `kota` were resolved when the field was rebuilt using the geographic reference data.
 
@@ -107,7 +111,7 @@ After cleaning, the dataset contains 10,076 line-item records across 5,009 order
 
 Commercial performance from 2014 to 2017 was evaluated using net sales, profit, profit margin, order volume, quantity sold, average order value (AOV), and units per transaction (UPT). The analysis assessed overall performance and changes over time at annual, quarterly, and monthly levels.
 
-Key calculations:
+**Key calculations:**
 
 - **Net Sales** = Gross Sales − Discount Amount
 - **Profit Margin** = Total Profit ÷ Total Net Sales
@@ -121,7 +125,7 @@ Key calculations:
 
 ##### 1. Net sales and profitability increased substantially from 2014 to 2017
 
-<img src="figures/q1_annual_commercial_performance.png" width="700" alt="Annual net sales, profit, and profit Margin">
+<img src="figures/q1_annual_commercial_performance.png" width="700" alt="Annual net sales, profit, and profit margin">
 
 Annual net sales rose from approximately Rp6.12B to Rp9.53B, an increase of 55.8%. Profit increased 89.3%, from about Rp748M to Rp1.42B, while profit margin improved from 12.2% to 14.9%. Growth accelerated particularly sharply in 2016, with quarterly YoY net sales growth reaching 40.96% in Q1 and 51.53% in Q2.
 
@@ -151,7 +155,7 @@ In Q4 2017, net sales reached a record Rp3.59B, up 13.09% YoY, yet profit fell t
 
 Commercial performance was compared across product sub-categories, customer segments, and provinces using net sales and profit as the primary measures. Profit margin, order volume, AOV, ranking consistency, and recurring losses provided additional context.
 
-For each entity:
+**For each entity:**
 
 - **Net Sales Rank** and **Profit Rank** were calculated for each year from 2014 to 2017.
 
@@ -211,7 +215,7 @@ Sumatera Selatan recorded the weakest average commercial rank of 7.63 but remain
 
 Commercial performance was compared across the observed discount levels from 2014 to 2017 using net sales, profit, and profit margin. Associated order volume provided additional context on the level of purchasing activity at each discount rate.
 
-Key calculations:
+**Key calculations:**
 
 - **Net Sales** = Gross Sales − Discount Amount
 - **Profit** = Aggregate profit or loss within each discount level
@@ -246,7 +250,7 @@ Discount levels from 30% to 80% accounted for only 10.2% of total net sales, or 
 
 <img src="figures/q3_loss_exposure%20and_order_volume_by_discount_level.png" width="700" alt="Loss exposure and order volume by discount level">
 
-The **70% discount level** generated the largest absolute loss at approximately **−Rp601.1M**, while the **80% level** recorded the lowest profit margin at **−897.03%**. These levels had associated order volumes of **344 and 250**, respectively, indicating that extreme-discount activity was present across hundreds of orders rather than being confined to isolated transactions.
+The 70% discount level generated the largest absolute loss at approximately −Rp601.1M, while the 80% level recorded the lowest profit margin at −897.03%. These levels had associated order volumes of 344 and 250, respectively, indicating that extreme-discount activity was present across hundreds of orders rather than being confined to isolated transactions.
 
 ### Question 4: Concentration of High-Discount, Loss-Making Activity
 
@@ -256,11 +260,11 @@ High-discount, loss-making activity was evaluated at the line-item level across 
 
 A risk line item was defined as:
 
-Discount ≥ 30% and Profit < 0
+**Discount ≥ 30% and Profit < 0**
 
 The 30% discount threshold reflects the observed profitability breakpoint identified in the discount analysis, where aggregate profit margin became negative and remained negative at all higher observed discount levels.
 
-Key calculations:
+**Key calculations:**
 
 - **Risk Line Items** = Number of qualifying line items
 - **Risk Concentration** = Risk Line Items ÷ Total Line Items within the entity
@@ -299,25 +303,25 @@ Sumatera Selatan recorded the highest risk concentration at 15.88%, followed by 
 
 ### Conclusion
 
-Commercial performance strengthened substantially from **2014 to 2017**, with net sales, profit, and profit margin increasing overall. Growth was driven primarily by higher order volume and quantity sold rather than larger average order values, while performance showed a recurring year-end peak.
+Commercial performance strengthened substantially from 2014 to 2017, with net sales, profit, and profit margin increasing overall. Growth was driven primarily by higher order volume and quantity sold rather than larger average order values, while performance showed a recurring year-end peak.
 
-Performance was uneven across business dimensions. **Phones** delivered the strongest overall sub-category performance, **Consumer** consistently led customer segments, and **Jawa Timur** showed the strongest balanced provincial results. Weakness also took different forms: some entities contributed relatively little to overall performance, while others showed persistent losses or greater ranking instability.
+Performance was uneven across business dimensions. Phones delivered the strongest overall sub-category performance, Consumer consistently led customer segments, and Jawa Timur showed the strongest balanced provincial results. Weakness also took different forms: some entities contributed relatively little to overall performance, while others showed persistent losses or greater ranking instability.
 
-Discount analysis revealed a clear profitability breakpoint. Profit margins remained positive through **20% discounts** but became negative from **30% onward**. Although high-discount activity represented a relatively small share of net sales, it was associated with substantial losses.
+Discount analysis revealed a clear profitability breakpoint. Profit margins remained positive through 20% discounts but became negative from 30% onward. Although high-discount activity represented a relatively small share of net sales, it was associated with substantial losses.
 
-High-discount, loss-making activity was most concentrated in specific product sub-categories, particularly **Tables, Binders, and Machines**. Risk concentrations were broadly similar across customer segments, while provincial risk concentration and loss exposure did not always occur in the same locations.
+High-discount, loss-making activity was most concentrated in specific product sub-categories, particularly Tables, Binders, and Machines. Risk concentrations were broadly similar across customer segments, while provincial risk concentration and loss exposure did not always occur in the same locations.
 
-Overall, the findings indicate that commercial growth should be evaluated alongside **profitability, discount intensity, and loss exposure**, rather than sales scale alone.
+These findings indicate that commercial growth should be evaluated alongside profitability, discount intensity, and loss exposure, rather than sales scale alone.
 
 ## Dashboard
 
 An interactive Data Studio dashboard summarizes the analysis across five areas: annual overview, quarterly and monthly commercial performance, performance by business dimension, discount performance, and risk analysis. The dashboard also includes filters for time periods, product sub-categories, customer segments, and provinces.
 
+You can find the dashboard link below the cover above.
+
 **Screenshot:**
 
-<img src="figures/dashboard_screenshot.jpg" width="500" alt="Data Studio dashboard screenshot">
-
-**Dashboard:** [View in Google Data Studio](https://datastudio.google.com/reporting/9b0eee36-cb31-4a41-bf7c-8d2b9de1a000)
+<img src="assets/dashboard_screenshot.jpg" width="500" alt="Data Studio dashboard screenshot">
 
 ## Business Recommendations
 
@@ -361,11 +365,10 @@ An interactive Data Studio dashboard summarizes the analysis across five areas: 
   - Conditional formatting
   - Filtering and sorting
   - Charts and visualization
-  - **Workbook:** [View PDF](eda_sheets.pdf)
 
-- **Key spreadsheet functions**
-  
-  - **Aggregation:** `SUM`, `SUMIFS`, `COUNTIFS`, `COUNTUNIQUEIFS`
+**Key spreadsheet functions**
+
+- - **Aggregation:** `SUM`, `SUMIFS`, `COUNTIFS`, `COUNTUNIQUEIFS`
   - **Array construction:** `VSTACK`
   - **Date processing:** `YEAR`, `MONTH`, `TEXT`
   - **Descriptive statistics:** `AVERAGE`, `MEDIAN`, `QUARTILE.INC`, `STDEV.P`, `MIN`, `MAX`
@@ -374,7 +377,7 @@ An interactive Data Studio dashboard summarizes the analysis across five areas: 
   - **Lookup:** `VLOOKUP`
   - **Ranking:** `RANK`
 
-- **Google Data Studio**
+- **Data Studio**
   
   - Dashboard design
   - KPI and trend visualization
@@ -394,3 +397,5 @@ For questions or feedback:
 - **Email:** [ariefzuhri@outlook.co.id](mailto:ariefzuhri@outlook.co.id) (Arief Zuhri)
 
 - **LinkedIn:** [linkedin.com/in/ariefzuhri](https://www.linkedin.com/in/ariefzuhri)
+
+- **GitHub:** [Open an issue](https://github.com/ariefzuhri/ecommerce-performance-analysis/issues)
